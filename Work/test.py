@@ -1,6 +1,3 @@
-# bounce.py
-#
-# Exercise 1.5
 height = 100.0
 bounce_factor = 0.6
 bounce_times = 10
