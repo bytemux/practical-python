@@ -1,8 +1,11 @@
-height = 100.0
-bounce_factor = 0.6
-bounce_times = 10
+prices = {}  # Initial empty dict
 
-while bounce_times > 0:
-  height = height * bounce_factor
-  bounce_times -= 1
-  print(bounce_times, ' ', round(height, 4))
+with open('Data/prices.csv', 'rt') as f:
+    for line in f:
+        row = line.split(',')
+        if row == ['\n']:
+            print(row)
+            break
+
+        prices[row[0]] = float(row[1])
+    print(prices)
