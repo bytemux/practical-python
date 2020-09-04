@@ -149,3 +149,22 @@ portfolio_prices = { name: prices[name] for name in names }
 >>> portfolio_prices
 {'AA': 9.22, 'GE': 13.48, 'IBM': 106.28, 'MSFT': 20.89, 'CAT': 35.46}
 ```
+
+## Var assignment & pointers
+```python
+# get info about var
+a == c
+a is b
+id(a)
+
+# deep copy
+import copy
+b = copy.deepcopy(a)
+
+# check for object type(s)
+if isinstance(a, (list,tuple)):
+    print('a is a list or tuple')
+```
+
+TODO: при необходимости считать csv/таблицу воспользоваться list / dict comprehension
+https://dabeaz-course.github.io/practical-python/Notes/02_Working_with_data/07_Objects.html
