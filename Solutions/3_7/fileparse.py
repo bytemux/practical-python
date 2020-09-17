@@ -11,7 +11,7 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','
         # Read the file headers (if any)
         headers = next(rows) if has_headers else []
 
-        # If specific columns have been selected, make indices for filtering 
+        # If specific columns have been selected, make indices for filtering
         if select:
             indices = [ headers.index(colname) for colname in select ]
             headers = select
