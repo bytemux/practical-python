@@ -41,4 +41,44 @@ import sys
 sys.modules.keys()
 # paths
 sys.path
+
+# args list ['test.py', '1', '2', '3']
+sys.argv
+
+# export TEST="wow"
+envvar = os.environ['TEST']  # 'wow'
+
+# customize exit code
+raise SystemExit
+raise SystemExit(exitcode)
+raise SystemExit('Informative message')
+## alt
+sys.exit(exitcode)
+
 ```
+
+## Script template
+```python
+#!/usr/bin/env python3
+# prog.py
+
+# Import statements (libraries)
+import modules
+
+# Functions
+def spam():
+    ...
+
+def blah():
+    ...
+
+# Main function
+def main(argv):
+    # Parse command line args, environment, etc.
+    ...
+
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)
+```
+
