@@ -4,12 +4,12 @@ class Stock:
         self.shares = shares
         self.price = price
 
+    @property
+    def shares(self):
+        return self._shares
 
-class MyStock(Stock):
-    def __init__(self, name, shares, price, factor):
-        # Check the call to `super` and `__init__`
-      # super().__init__(name, shares, price)
-        self.factor = factor
-
-    def cost(self):
-        return self.factor * super().cost()
+    @shares.setter
+    def shares(self, value):
+        if not isinstance(value, int):
+            raise TypeError('Expected int')
+        self._shares = value

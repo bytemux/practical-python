@@ -26,3 +26,35 @@ foo.__mro__ # inheritance chain (Method Resolution Order
 for cls in n.__class__.__mro__:
         if 'cost' in cls.__dict__:
             break
+
+```
+
+## Private VS Public convention. Property, setter, getter
+```python
+# _           used for private vars & methods
+# @           decorator, modifies folloving function
+# __slots__   restricts attributes names, used on data structure classes
+
+# override setters and getters
+# notice private var '_shares' and public property 'shares'
+class Stock:
+    __slots__ = ('name','_shares','price')
+    def __init__(self, name, shares, price):
+        self.name = name
+        self.shares = shares
+        self.price = price
+    @property
+    def shares(self):
+        return self._shares
+
+    @shares.setter
+    def shares(self, value):
+        if not isinstance(value, int):
+            raise TypeError('Expected int')
+        self._shares = value
+
+>>> s = Stock('IBM', 50, 91.1)
+>>> s.shares         # Triggers @property
+50
+>>> s.shares = 75    # Triggers @shares.setter
+```
