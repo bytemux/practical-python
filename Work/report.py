@@ -3,6 +3,7 @@
 import fileparse
 from stock import Stock
 import tableformat
+from portfolio import Portfolio
 
 
 def read_portfolio(filename):
@@ -16,7 +17,7 @@ def read_portfolio(filename):
                                         types=[str, int, float])
 
     portfolio = [Stock(d['name'], d['shares'], d['price']) for d in portdicts]
-    return portfolio
+    return Portfolio(portfolio)
 
 
 def read_prices(filename):
@@ -51,12 +52,13 @@ def print_report(reportdata, formatter):
         formatter.row(rowdata)
 
 
-def portfolio_report(portfoliofile, pricefile, fmt='csv'):
+def portfolio_report(portfoliofile, pricefile, fmt='txt'):
     '''
     Make a stock report given portfolio and price data files.
     '''
     # Read data files
     portfolio = read_portfolio(portfoliofile)
+    print(portfolio.__dict__)
     prices = read_prices(pricefile)
 
     # Create the report data
@@ -76,4 +78,3 @@ def main(args):
 if __name__ == '__main__':
     import sys
     main(sys.argv)
-
