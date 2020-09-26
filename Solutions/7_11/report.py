@@ -46,7 +46,7 @@ def portfolio_report(portfoliofile, pricefile, fmt='txt'):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
