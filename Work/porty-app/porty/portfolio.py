@@ -1,7 +1,7 @@
 # portfolio.py
 
-import fileparse
-import stock
+from . import fileparse
+from . import stock
 
 class Portfolio:
     def __init__(self):
@@ -10,8 +10,8 @@ class Portfolio:
     @classmethod
     def from_csv(cls, lines, **opts):
         self = cls()
-        portdicts = fileparse.parse_csv(lines, 
-                                        select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
                                         types=[str,int,float],
                                         **opts)
 
@@ -48,4 +48,4 @@ class Portfolio:
 
 
 
-        
+
